@@ -1,4 +1,6 @@
 class FortesForum::ForunsController < ApplicationController
+  respond_to :html, :json
+  
   skip_filter :authenticate_user!
 
   def index
