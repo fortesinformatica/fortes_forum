@@ -4,8 +4,10 @@ module FortesForum
       extend ActiveSupport::Concern
 
       included do
-        def self.get_descricao
-          "Não Implementado ######"
+        def self.get_or_create params
+          @forum = where(params)
+          @forum = create(params) if @forum.empty?
+          @forum
         end
       end
     end
