@@ -1,4 +1,4 @@
-class ForunsController < ApplicationController
+class FortesForum::ForunsController < ApplicationController
   skip_filter :authenticate_user!
 
   def index
