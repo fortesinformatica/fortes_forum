@@ -1,6 +1,4 @@
 class FortesForum::ForunsController < ApplicationController
-  include FortesForum::Default::ForunsController
-
   respond_to :html, :json
 
   skip_filter :authenticate_user!
