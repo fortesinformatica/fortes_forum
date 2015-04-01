@@ -5,8 +5,8 @@ module FortesForum
 
       included do
         def self.get_or_create params
-          @forum = where(params)
-          @forum = create(params) if @forum.empty?
+          @forum = where(params).first
+          @forum = create(params) unless @forum.present?
           @forum
         end
       end
