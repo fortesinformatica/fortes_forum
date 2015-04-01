@@ -1,5 +1,5 @@
 class ForunsController < ApplicationController
-  skip_filter :authentication_user!
+  skip_filter :authenticate_user!
 
   def index
     @forum = FortesForum::Forum.get_or_create foruns_params(params)
