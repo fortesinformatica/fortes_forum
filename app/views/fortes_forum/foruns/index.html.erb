@@ -2,8 +2,8 @@ Fórum: #<%= @forum.try(:id) %></br>
 
 <a href="#" id="link_novo_post">Novo</a>
 
-<div id="novo_post" hidden="true">
-  <% form_for @post do |f| %>
+<div id="novo_post">
+  <%= form_for @post do |f| %>
     <%= f.hidden_field :forum_id, value: @forum.try(:id) %>
 
     <%= f.text_area(:conteudo, size: "60x6") %>
@@ -13,6 +13,6 @@ Fórum: #<%= @forum.try(:id) %></br>
 
 <div>
   <% @forum.posts.order('created_at DESC').each do |post| %>
-    <%= link_to post.conteudo, fortes_forum_post_path(post.id) %>
+    <%= link_to post.conteudo, fortes_forum_post_path(post.id) %></br>
   <% end %>
 </div>
