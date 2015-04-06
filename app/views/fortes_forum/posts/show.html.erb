@@ -11,6 +11,10 @@
 
 </br>
 
-<% @post.replies.each do |reply| %>
-    <%= reply.conteudo %></br>
-<% end %>
+<div class="replies">
+    <% @post.replies.each do |reply| %>
+      <div class="reply"><%= reply.conteudo %></div>
+    <% end %>
+
+  <div id="replies_anchor" />
+</div>
