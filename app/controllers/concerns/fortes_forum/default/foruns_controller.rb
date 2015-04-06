@@ -13,6 +13,13 @@ module FortesForum::Default
         respond_with @forum
       end
 
+      def show
+        @post = FortesForum::Post.new
+        @forum = FortesForum::Forum.find_by(id: params[:id])
+
+        render :index
+      end
+
       def foruns_params params
         {id: params[:id]}
       end
