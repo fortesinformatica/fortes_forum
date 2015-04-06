@@ -13,6 +13,6 @@ Fórum: #<%= @forum.try(:id) %></br>
 
 <div>
   <% @forum.posts.order('created_at DESC').each do |post| %>
-    <%= link_to post.conteudo, post_path(post.id) %>
+    <%= link_to post.conteudo, fortes_forum_post_path(post.id) %>
   <% end %>
 </div>
