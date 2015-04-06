@@ -1,5 +1,13 @@
-<%= link_to "Voltar", fortes_forum_forum_path(@post.forum.id) %>
+<%= link_to "Voltar", fortes_forum_forum_path(@post.forum.id) %></br>
 
-<%= @post.conteudo %>
+<%= @post.conteudo %></br>
+
+<div id="nova_resposta" hidden="true">
+  <%= hidden_field_tag :post_id, @post.id  %>
+  <%= text_field_tag :resposta_conteudo, "", size: "60x6" %>
+  <%= link_to "Gravar", "#", id: "link_novo_reply" %>
+</div>
+
+</br>
 
 aqui vão as respostas
