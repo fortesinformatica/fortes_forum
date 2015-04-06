@@ -7,10 +7,6 @@ module FortesForum::Default
 
       skip_filter :authenticate_user!
 
-      def index
-
-      end
-
       def create
         @post = FortesForum::Post.create({ user_id: current_user.try(:id), forum_id: params[:forum_id], conteudo: params[:conteudo] })
         respond_with @post
