@@ -4,6 +4,6 @@ Fórum: #<%= @forum.try(:id) %>
 <input id='forum_id' type="hidden" value="<%= @forum.try(:id) %>">
 
 <div id="novo_post" hidden="true">
-  <%= text_area_tag(:post_conteudo, size: "24x6") %>
+  <%= text_area_tag(:post_conteudo, "", size: "240x60") %>
   <a href="#" id="enviar_novo_post">Novo</a>
 </div>
