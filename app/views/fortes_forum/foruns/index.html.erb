@@ -9,7 +9,7 @@ Fórum: #<%= @forum.try(:id) %>
 </div>
 
 <div>
-  <% @forum.posts.order(:created_at, 'DESC').each do |post| %>
+  <% @forum.posts.order('created_at DESC').each do |post| %>
     <%= post.conteudo %></br>
   <% end %>
 </div>
