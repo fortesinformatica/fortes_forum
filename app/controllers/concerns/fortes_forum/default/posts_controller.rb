@@ -9,9 +9,13 @@ module FortesForum::Default
 
       def create
         @post = FortesForum::Post.create({ user_id: current_user.try(:id), forum_id: params[:forum_id], conteudo: params[:conteudo] })
-        respond_with @post
+        redirect_to @post
       end
 
+      def show
+        @post = FortesForum::Post.find_by(id: params[:id])
+        respond_with @post
+      end
     end
   end
 end

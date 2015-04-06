@@ -4,12 +4,12 @@ Fórum: #<%= @forum.try(:id) %>
 <input id='forum_id' type="hidden" value="<%= @forum.try(:id) %>">
 
 <div id="novo_post" hidden="true">
-  <%= text_area_tag(:post_conteudo, "", size: "60x80") %>
+  <%= text_area_tag(:post_conteudo, "", size: "60x6") %>
   <a href="#" id="enviar_novo_post">Novo</a>
 </div>
 
 <div>
-  <% @forum.posts.each do |post| %>
+  <% @forum.posts.order(:created_at, 'DESC').each do |post| %>
     <%= post.conteudo %></br>
   <% end %>
 </div>
