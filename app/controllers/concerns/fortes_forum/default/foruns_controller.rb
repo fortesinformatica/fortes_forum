@@ -8,7 +8,7 @@ module FortesForum::Default
       skip_filter :authenticate_user!
 
       def index
-        @post = FortesForum::Post.new 
+        @post = FortesForum::Post.new
         @forum = FortesForum::Forum.get_or_create foruns_params(params)
         respond_with @forum
       end

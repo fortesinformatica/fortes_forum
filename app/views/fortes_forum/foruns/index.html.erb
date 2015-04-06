@@ -6,7 +6,7 @@ Fórum: #<%= @forum.try(:id) %></br>
   <% form_for @post do |f| %>
     <%= f.hidden_field :forum_id, value: @forum.try(:id) %>
 
-    <%= f.text_area(:conteudo, "", size: "60x6") %>
+    <%= f.text_area(:conteudo, size: "60x6") %>
     <%= f.submit "Gravar" %>
   <% end %>
 </div>
