@@ -1,13 +1,10 @@
 module FortesForum
   module Default
-    module Post
+    module Reply
       extend ActiveSupport::Concern
 
       included do
-        belongs_to :user
-        belongs_to :forum
-        has_many :replies
-
+        belongs_to :post
       end
     end
   end

@@ -11,4 +11,6 @@
 
 </br>
 
-aqui vão as respostas
+<% @post.replies.each do |reply| %>
+    <%= reply.conteudo %></br>
+<% end %>
