@@ -1,15 +1,18 @@
-Fórum: #<%= @forum.try(:id) %>
+Fórum: #<%= @forum.try(:id) %></br>
 
 <a href="#" id="link_novo_post">Novo</a>
-<input id='forum_id' type="hidden" value="<%= @forum.try(:id) %>">
 
 <div id="novo_post" hidden="true">
-  <%= text_area_tag(:post_conteudo, "", size: "60x6") %>
-  <a href="#" id="enviar_novo_post">Novo</a>
+  <% form_for @post do |f| %>
+    <%= f.hidden_field :forum_id, value: @forum.try(:id) %>
+
+    <%= f.text_area(:conteudo, "", size: "60x6") %>
+    <%= f.submit "Gravar" %>
+  <% end %>
 </div>
 
 <div>
   <% @forum.posts.order('created_at DESC').each do |post| %>
-    <%= post.conteudo %></br>
+    <%= link_to post.conteudo, post_path(post.id) %>
   <% end %>
 </div>
