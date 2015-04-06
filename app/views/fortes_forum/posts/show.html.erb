@@ -2,6 +2,7 @@
 
 <%= @post.conteudo %></br>
 
+<a href="#" id="link_novo_reply">Novo</a>
 <div id="novo_reply" hidden="true">
   <%= hidden_field_tag :post_id, @post.id  %>
   <%= text_field_tag :resposta_conteudo, "", size: "60x6" %>
