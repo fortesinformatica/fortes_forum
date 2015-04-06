@@ -2,7 +2,7 @@ Fórum: #<%= @forum.try(:id) %></br>
 
 <a href="#" id="link_novo_post">Novo</a>
 
-<div id="novo_post">
+<div id="novo_post" hidden="true">
   <%= form_for @post do |f| %>
     <%= f.hidden_field :forum_id, value: @forum.try(:id) %>
 
