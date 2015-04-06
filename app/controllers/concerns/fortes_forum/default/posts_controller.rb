@@ -8,7 +8,7 @@ module FortesForum::Default
       skip_filter :authenticate_user!
 
       def create
-        @post = FortesForum::Post.create({ user_id: current_user.try(:id), forum_id: params[:forum_id], conteudo: params[:conteudo] })
+        @post = FortesForum::Post.create({ user_id: current_user.try(:id), forum_id: params[:fortes_forum_post][:forum_id], conteudo: params[:fortes_forum_post][:conteudo] })
         redirect_to @post
       end
 
