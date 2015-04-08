@@ -1,0 +1,23 @@
+<% replies.each do |reply| %>
+    <div class="reply" data-id="<%= reply.id %>">
+      <%= reply.conteudo %>
+
+      <div id="comments_do_reply_<%= reply.id %>">
+        <a href="#" id="link_novo_comment" data-reply-id="<%= reply.id %>">Novo Comment</a>
+
+        <div id="novo_comment_do_reply_<%= reply.id %>" class="novo_comment" hidden="true">
+
+          <%= text_field_tag "comment_conteudo_do_reply_#{reply.id}", "", size: "60x6" %>
+          <a href="#" id="gravar_novo_comment" data-reply-id="<%= reply.id %>">Gravar</a>
+
+        </div>
+
+        <% reply.comments.each do |comment| %>
+            <div class='comment comment_do_reply_<%= reply.id %>' data-id="<%= comment.id %>">
+              <%= comment.conteudo %>
+            </div>
+        <% end %>
+
+      </div>
+    </div>
+<% end %>

@@ -3,5 +3,6 @@ Rails.application.routes.draw do
     resources :foruns
     resources :posts
     resources :replies
+    resources :comments
   end
 end

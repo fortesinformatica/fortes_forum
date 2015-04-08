@@ -11,10 +11,6 @@
 
 </br>
 
-<div class="replies">
-    <% @post.replies.each do |reply| %>
-      <div class="reply"><%= reply.conteudo %></div>
-    <% end %>
-
-  <div id="replies_anchor" />
+<div class="replies" id="replies_anchor">
+    <%= render :partial => 'reply', locals: { replies: @post.replies } %>
 </div>

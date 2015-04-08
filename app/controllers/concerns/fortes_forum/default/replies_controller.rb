@@ -9,8 +9,9 @@ module FortesForum::Default
 
       def create
         @reply = FortesForum::Reply.create({ user_id: current_user.try(:id), post_id: params[:post_id], conteudo: params[:conteudo]  })
-        respond_with @reply
+        render partial: 'fortes_forum/posts/reply', locals: { replies: @reply.replies_nao_sincronizados(params[:ultimoIdSincronizado]) }
       end
+
     end
   end
 end
