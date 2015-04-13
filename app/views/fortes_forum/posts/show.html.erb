@@ -1,17 +1,22 @@
-<%= link_to "Voltar", fortes_forum_forum_path(@post.forum.id) %></br>
+<div class="container">
+	<div class="forum_header">
+		<%= render partial: "fortes_forum/foruns/header", locals: {forum: @post.forum} rescue nil %>
+	</div>
 
-<%= @post.conteudo %></br>
+	<%= link_to "<i class='fa fa-arrow-circle-left'></i> Voltar".html_safe, fortes_forum_forum_path(@post.forum.id), {class: "btn btn-info btn-xs"} %></br>	
 
-<a href="#" id="link_novo_reply">Novo</a>
-<div id="novo_reply" hidden="true">
+	<span class="help-block">
+	<%= @post.conteudo %>
+	</span>
+
   <%= hidden_field_tag :post_id, @post.id  %>
-  <%= text_field_tag :resposta_conteudo, "", size: "60x6" %>
+  <%= text_area_tag :resposta_conteudo, "", placeholder: "responda aqui", class: "form-control text-area-reply" %>
+  <input type='button' id="gravar_novo_reply" class="btn btn-success btn-gravar-reply" value='Gravar'/>
 
-  <a href="#" id="gravar_novo_reply">Gravar</a>
-</div>
 
-</br>
+	</br>
 
-<div class="replies" id="replies_anchor">
-    <%= render :partial => 'reply', locals: { replies: @post.replies } %>
+	<div class="replies" id="replies_anchor">
+	    <%= render :partial => 'reply', locals: { replies: @post.replies } %>
+	</div>
 </div>

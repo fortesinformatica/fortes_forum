@@ -1,20 +1,23 @@
-<% replies.each do |reply| %>
-    <div class="reply" data-id="<%= reply.id %>">
-      <%= reply.conteudo %>
+<div class="respostas">
+  <ul>
+  <% replies.each do |reply| %>
+    <li>
+      <div class="reply" data-id="<%= reply.id %>">      
 
-      <div id="comments_do_reply_<%= reply.id %>">
-        <a href="#" id="link_novo_comment" data-reply-id="<%= reply.id %>">Novo Comment</a>
+        <div id="comments_do_reply_<%= reply.id %>">
+          <%= reply.conteudo %> <a href="#" id="link_novo_comment" data-reply-id="<%= reply.id %>"><i class='fa fa-comments-o balaozinho-novo-commment'></i></a>
 
-        <div id="novo_comment_do_reply_<%= reply.id %>" class="novo_comment" hidden="true">
+          <div id="novo_comment_do_reply_<%= reply.id %>" class="novo_comment" hidden="true">
+            <%= text_field_tag "comment_conteudo_do_reply_#{reply.id}", "", placeholder: "comente aqui", class: "form-control text-area-comment" %>
+            <input type='button' id="gravar_novo_comment" data-reply-id="<%= reply.id %>" class="btn btn-info btn-gravar-comment" value='Gravar'/>
+          </div>
 
-          <%= text_field_tag "comment_conteudo_do_reply_#{reply.id}", "", size: "60x6" %>
-
-          <a href="#" id="gravar_novo_comment" data-reply-id="<%= reply.id %>">Gravar</a>
-
+          <div class='comments'>
+            <%= render :partial => 'fortes_forum/posts/comments', locals: {comments: reply.comments} %>
+          </div>
         </div>
-
-        <%= render :partial => 'fortes_forum/posts/comments', locals: {comments: reply.comments} %>
-
       </div>
-    </div>
-<% end %>
+    </li>
+  <% end %>
+  </ul>
+</div>

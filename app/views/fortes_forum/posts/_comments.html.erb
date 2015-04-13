@@ -1,5 +1,7 @@
+<ul>
 <% comments.each do |comment| %>
-    <div class='comment comment_do_reply_<%= comment.reply_id %>' data-id="<%= comment.id %>">
-      <%= comment.conteudo %>
-    </div>
+	<li class='comment comment_do_reply_<%= comment.reply_id %>' data-id="<%= comment.id %>">
+		<%= comment.conteudo %>
+  </li>
 <% end %>
+</ul>

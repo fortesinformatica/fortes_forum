@@ -1,18 +1,31 @@
-Fórum: #<%= @forum.try(:id) %></br>
+<div class="container">
+	<div class="forum_header">
+		<%= render partial: "header", locals: {forum: @forum} rescue nil %>
+	</div>
 
-<a href="#" id="link_novo_post">Novo</a>
-
-<div id="novo_post" hidden="true">
+	<div class='formz'>
   <%= form_for @post do |f| %>
     <%= f.hidden_field :forum_id, value: @forum.try(:id) %>
 
-    <%= f.text_area(:conteudo, size: "60x6") %>
-    <%= f.submit "Gravar" %>
-  <% end %>
-</div>
+    <%= f.text_area(:conteudo, placeholder: "faça uma pergunta", class: "form-control text-area-post") %>
+    <%= f.submit "Gravar", class: "btn btn-success btn-gravar-post" %>
 
-<div>
-  <% @forum.posts.order('created_at DESC').each do |post| %>
-    <%= link_to post.conteudo, fortes_forum_post_path(post.id) %></br>
   <% end %>
+  </div>
+
+	<div class="perguntas">
+		<ul>
+		  <% @forum.posts.order('created_at DESC').each do |post| %>
+		    <li>
+		    	<div><%= link_to post.conteudo, fortes_forum_post_path(post.id) %></div>
+		    	<div class='autor-post'>
+			    	<%= post.user.name %> (<%= post.created_at.strftime("%d/%m/%Y às %H:%M:%S") %>)
+		    	</div>
+		    	<div class='numero-replies badge'>
+		    		<%= post.replies.size %>
+		    	</div>
+		    </li>
+		  <% end %>
+		</ul>
+	</div>
 </div>
