@@ -6,7 +6,7 @@ module FortesForum
       included do
         belongs_to :user
         belongs_to :forum
-        has_many :replies
+        has_many :replies, dependent: :destroy
 
       end
     end

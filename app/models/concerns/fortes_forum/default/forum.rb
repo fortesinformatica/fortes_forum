@@ -4,7 +4,7 @@ module FortesForum
       extend ActiveSupport::Concern
 
       included do
-        has_many :posts
+        has_many :posts, dependent: :destroy
 
         def self.get_or_create params
           @forum = where(params).first

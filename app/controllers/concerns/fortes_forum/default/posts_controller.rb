@@ -5,7 +5,7 @@ module FortesForum::Default
     included do
       respond_to :html, :json
 
-      skip_filter :authenticate_user!
+      skip_filter :authorize_user!
 
       def create
         @post = FortesForum::Post.create({ user_id: current_user.try(:id), forum_id: params[:fortes_forum_post][:forum_id], conteudo: params[:fortes_forum_post][:conteudo] })

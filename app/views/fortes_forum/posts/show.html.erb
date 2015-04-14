@@ -12,9 +12,7 @@
   <%= hidden_field_tag :post_id, @post.id  %>
   <%= text_area_tag :resposta_conteudo, "", placeholder: "responda aqui", class: "form-control text-area-reply" %>
   <input type='button' id="gravar_novo_reply" class="btn btn-success btn-gravar-reply" value='Gravar'/>
-
 	</br>
-
 	<div class="replies" id="replies_anchor">
 	    <%= render :partial => 'reply', locals: { replies: @post.replies } %>
 	</div>

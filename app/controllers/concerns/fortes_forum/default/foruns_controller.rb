@@ -5,7 +5,7 @@ module FortesForum::Default
     included do
       respond_to :html, :json
 
-      skip_filter :authenticate_user!
+      skip_filter :authorize_user!
 
       def index
         @post = FortesForum::Post.new

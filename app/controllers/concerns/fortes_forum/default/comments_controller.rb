@@ -5,7 +5,7 @@ module FortesForum::Default
     included do
       respond_to :html, :json
 
-      skip_filter :authenticate_user!
+      skip_filter :authorize_user!
 
       def create
         @comment = FortesForum::Comment.create({ user_id: current_user.try(:id), reply_id: params[:reply_id], conteudo: params[:conteudo]  })
