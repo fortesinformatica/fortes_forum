@@ -8,7 +8,7 @@
           <%= reply.conteudo %> <a href="#" id="link_novo_comment" data-reply-id="<%= reply.id %>"><i class='fa fa-comments-o balaozinho-novo-commment'></i></a>
 
           <div id="novo_comment_do_reply_<%= reply.id %>" class="novo_comment" hidden="true">
-            <%= text_field_tag "comment_conteudo_do_reply_#{reply.id}", "", placeholder: "comente aqui", class: "form-control text-area-comment" %>
+            <%= text_field_tag "comment_conteudo_do_reply_#{reply.id}", "", placeholder: "comente aqui", class: "form-control text-area-comment escapable enterable-comment", "data-reply-id" => reply.id %>
             <input type='button' id="gravar_novo_comment" data-reply-id="<%= reply.id %>" class="btn btn-info btn-gravar-comment" value='Gravar'/>
           </div>
 

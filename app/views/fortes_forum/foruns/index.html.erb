@@ -7,7 +7,7 @@
   <%= form_for @post do |f| %>
     <%= f.hidden_field :forum_id, value: @forum.try(:id) %>
 
-    <%= f.text_area(:conteudo, placeholder: "faça uma pergunta", class: "form-control text-area-post") %>
+    <%= f.text_area(:conteudo, placeholder: "faça uma pergunta", class: "form-control text-area-post enterable-post") %>
     <%= f.submit "Gravar", class: "btn btn-success btn-gravar-post" %>
 
   <% end %>

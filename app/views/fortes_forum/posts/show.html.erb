@@ -5,14 +5,13 @@
 
 	<%= link_to "<i class='fa fa-arrow-circle-left'></i> Voltar".html_safe, fortes_forum_forum_path(@post.forum.id), {class: "btn btn-info btn-xs"} %></br>	
 
-	<span class="help-block">
+	<span class="help-block post-content">
 	<%= @post.conteudo %>
 	</span>
 
   <%= hidden_field_tag :post_id, @post.id  %>
   <%= text_area_tag :resposta_conteudo, "", placeholder: "responda aqui", class: "form-control text-area-reply" %>
   <input type='button' id="gravar_novo_reply" class="btn btn-success btn-gravar-reply" value='Gravar'/>
-
 
 	</br>
 
