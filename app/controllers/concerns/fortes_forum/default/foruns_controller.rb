@@ -10,7 +10,12 @@ module FortesForum::Default
       def index
         @post = FortesForum::Post.new
         @forum = FortesForum::Forum.get_or_create foruns_params(params)
-        respond_with @forum
+        if @forum.permite_acessar? current_user
+          respond_with @forum
+        else
+          @error = "Sem permissão para acessar este fórum."
+          render :unauthorized
+        end
       end
 
       def show

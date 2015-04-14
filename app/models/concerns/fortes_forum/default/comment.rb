@@ -7,6 +7,12 @@ module FortesForum
         belongs_to :reply
         belongs_to :user
 
+        before_save :verifica_permissao!
+
+        def verifica_permissao!
+          true
+        end
+
         def comments_nao_sincronizados ultimo_id_sincronizado=0
           ultimo_id_sincronizado=0 if ultimo_id_sincronizado.empty?
           FortesForum::Comment.where(reply_id: self.reply_id).where("id > ?", ultimo_id_sincronizado)

@@ -11,6 +11,10 @@ module FortesForum
           @forum = create(params) unless @forum.present?
           @forum
         end
+
+        def permite_acessar? user
+          true
+        end
       end
     end
   end

@@ -1,3 +1,7 @@
+<% if @error %>
+  <div id="modal_alert" class="fortes_forum_errors"><%= @error %></div>
+<% end %>
+
 <div class="container">
 	<div class="forum_header">
 		<%= render partial: "fortes_forum/foruns/header", locals: {forum: @post.forum} rescue nil %>

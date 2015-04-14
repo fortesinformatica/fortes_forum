@@ -8,6 +8,11 @@ module FortesForum
         belongs_to :forum
         has_many :replies, dependent: :destroy
 
+        before_save :verifica_permissao!
+
+        def verifica_permissao!
+          true
+        end
       end
     end
   end
