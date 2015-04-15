@@ -8,6 +8,8 @@ module FortesForum
         belongs_to :user
         has_many :comments, dependent: :destroy
 
+        validates_presence_of :conteudo, :user_id, :post_id
+
         before_save :verifica_permissao!
 
         def verifica_permissao!

@@ -9,11 +9,10 @@ module FortesForum::Default
 
       def create
         @post = FortesForum::Post.create({ user_id: current_user.try(:id), forum_id: params[:fortes_forum_post][:forum_id], conteudo: params[:fortes_forum_post][:conteudo] })
-        if @post.id
+        if @post.valid?
           redirect_to @post
         else
-          @error = "Sem permissão para postar neste fórum."
-          render :unauthorized
+          redirect_to(:back, flash: { alert: @post.errors.messages })
         end
       end
 

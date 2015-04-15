@@ -7,6 +7,8 @@ module FortesForum
         belongs_to :reply
         belongs_to :user
 
+        validates_presence_of :conteudo, :user_id, :reply_id
+
         before_save :verifica_permissao!
 
         def verifica_permissao!
