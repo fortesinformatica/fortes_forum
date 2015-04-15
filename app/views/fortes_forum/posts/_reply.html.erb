@@ -5,14 +5,14 @@
       <div class="reply" data-id="<%= reply.id %>">      
 
         <div id="comments_do_reply_<%= reply.id %>">
-          <%= reply.conteudo %> <a href="#" id="link_novo_comment" data-reply-id="<%= reply.id %>"><i class='fa fa-comments-o balaozinho-novo-commment'></i></a>
+          <%= reply.conteudo %> <a href="#" data-reply-id="<%= reply.id %>" class="btn_novo_comentario"><i class='fa fa-comments-o balaozinho-novo-commment'></i></a>
 
           <div class='autor-post'>
             <%= reply.user.name %> (<%= reply.created_at.strftime("%d/%m/%Y às %H:%M:%S") %>)
           </div>
 
           <div id="novo_comment_do_reply_<%= reply.id %>" class="novo_comment" hidden="true">
-            <%= text_field_tag "comment_conteudo_do_reply_#{reply.id}", "", placeholder: "comente aqui", class: "form-control text-area-comment escapable enterable-comment", "data-reply-id" => reply.id %>
+            <%= text_field_tag "comment_conteudo_do_reply_#{reply.id}", "", placeholder: "comente aqui", class: "form-control text-area-comment escapable-comment enterable-comment", "data-reply-id" => reply.id %>
             <input type='button' id="gravar_novo_comment" data-reply-id="<%= reply.id %>" class="btn btn-info btn-gravar-comment" value='Gravar'/>
           </div>
 

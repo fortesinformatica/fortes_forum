@@ -10,7 +10,11 @@
 	<%= link_to "<i class='fa fa-arrow-circle-left'></i> Voltar".html_safe, fortes_forum_forum_path(@post.forum.id), {class: "btn btn-info btn-xs"} %></br>	
 
 	<span class="help-block post-content">
-	<%= @post.conteudo %>
+	  <%= @post.conteudo %>
+
+      <div class='autor-post'>
+        <%= @post.user.name %> (<%= @post.created_at.strftime("%d/%m/%Y às %H:%M:%S") %>)
+      </div>
 	</span>
 
   <%= hidden_field_tag :post_id, @post.id  %>

@@ -4,7 +4,7 @@
 	</div>
 
 	<div class='formz'>
-  <%= form_for @post do |f| %>
+  <%= form_for @post, html: {onsubmit: "return false;"} do |f| %>
     <%= f.hidden_field :forum_id, value: @forum.try(:id) %>
 
     <%= f.text_area(:conteudo, placeholder: "faça uma pergunta", class: "form-control text-area-post enterable-post") %>

@@ -1,7 +1,10 @@
 <ul>
 <% comments.each do |comment| %>
 	<li class='comment comment_do_reply_<%= comment.reply_id %>' data-id="<%= comment.id %>">
-		<%= comment.conteudo %>
+	  <%= comment.conteudo %>
+      <div class='autor-post'>
+        <%= comment.user.name %> (<%= comment.created_at.strftime("%d/%m/%Y às %H:%M:%S") %>)
+      </div>
   </li>
 <% end %>
 </ul>
