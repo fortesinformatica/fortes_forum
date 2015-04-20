@@ -7,7 +7,9 @@
 		<%= render partial: "fortes_forum/foruns/header", locals: {forum: @post.forum} rescue nil %>
 	</div>
 
-	<%= link_to "<i class='fa fa-arrow-circle-left'></i> Voltar".html_safe, fortes_forum_forum_path(@post.forum.id), {class: "btn btn-info btn-xs"} %></br>	
+	<%= link_to "<i class='fa fa-arrow-circle-left'></i> Voltar".html_safe, fortes_forum_forum_path(@post.forum.id), {class: "btn btn-info btn-xs"} %>
+    <%= link_to "<i class='fa fa-refresh'></i> Atualizar".html_safe, "#", {class: "btn btn-warning btn-xs btn-atualizar"} %></br></br>
+
 
 	<span class="help-block post-content">
 	  <%= @post.conteudo %>
