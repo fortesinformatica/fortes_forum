@@ -7,8 +7,8 @@ require "fortes_forum/version"
 Gem::Specification.new do |s|
   s.name        = "fortes_forum"
   s.version     = FortesForum::VERSION
-  s.authors     = ["TODO: Your name"]
-  s.email       = ["TODO: Your email"]
+  s.authors     = ["Equipe NEL"]
+  s.email       = ["desenvolvimento.nel@grupofortes.com.br"]
   s.homepage    = "TODO"
   s.summary     = "TODO: Summary of FortesForum."
   s.description = "TODO: Description of FortesForum."
