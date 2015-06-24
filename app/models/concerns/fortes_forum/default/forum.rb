@@ -15,6 +15,10 @@ module FortesForum
         def permite_acessar? user
           true
         end
+
+        def permite_excluir? user
+          true
+        end
       end
     end
   end
