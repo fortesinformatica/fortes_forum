@@ -20,6 +20,16 @@ module FortesForum::Default
         @post = FortesForum::Post.find_by(id: params[:id])
         respond_with @post
       end
+
+      def destroy
+        @post = FortesForum::Post.find_by(id: params[:id])
+        if @post.forum.permite_excluir? current_user
+          @post.update(moderado: true)
+          respond_with @post
+        else
+          redirect_to(:back, flash: { alert: "usuário não tem permissão para moderar o fórum" })
+        end
+      end
     end
   end
 end

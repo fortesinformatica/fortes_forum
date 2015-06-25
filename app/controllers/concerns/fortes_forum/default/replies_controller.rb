@@ -16,6 +16,16 @@ module FortesForum::Default
           render partial: 'fortes_forum/application/alerts', :status => :unauthorized, locals: { flash: { alert: @reply.errors.messages } }
         end
       end
+
+      def destroy
+        @reply = FortesForum::Reply.find_by(id: params[:id])
+        if @reply.post.forum.permite_excluir? current_user
+          @reply.update(moderado: true)
+          respond_with @reply
+        else
+          redirect_to(:back, flash: { alert: "usuário não tem permissão para moderar o fórum" })
+        end
+      end
     end
   end
 end

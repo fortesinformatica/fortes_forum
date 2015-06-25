@@ -1,7 +1,7 @@
 <ul>
 <% comments.each do |comment| %>
 	<li class='comment comment_do_reply_<%= comment.reply_id %>' data-id="<%= comment.id %>">
-		<%= render :partial => 'fortes_forum/application/moderate_button', locals: {permite_excluir: comment.reply.post.forum.permite_excluir?(current_user), entidade: "comentário" } %>
+		<%= render :partial => 'fortes_forum/application/moderate_button', locals: {permite_excluir: comment.reply.post.forum.permite_excluir?(current_user), entidade: "comentario", url: "/fortes_forum/comments/#{comment.id}.json" } %>
 
 	  <span class="comentario-titulo"><%= comment.conteudo %></span>
       <div class='autor-post'>

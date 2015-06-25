@@ -24,6 +24,6 @@
   <input type='button' id="gravar_novo_reply" class="btn btn-success btn-gravar-reply" value='Gravar'/>
 	</br>
 	<div class="replies" id="replies_anchor">
-	    <%= render :partial => 'reply', locals: { replies: @post.replies } %>
+	    <%= render :partial => 'reply', locals: { replies: @post.replies.where(moderado: false) } %>
 	</div>
 </div>

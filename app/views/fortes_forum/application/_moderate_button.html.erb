@@ -1,3 +1,3 @@
 <% if permite_excluir %>
-  <%= link_to raw("<i class='fa fa-times-circle'></i>"), "#", class: 'moderar-button', "data-qtip" => "Moderar #{entidade}"  %>
+  <%= link_to raw("<i class='fa fa-times-circle'></i>"), "#", class: "moderar-button", "data-qtip" => "Excluir #{entidade}", url: url, entidade: entidade %>
 <% end %>
