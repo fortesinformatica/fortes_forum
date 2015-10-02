@@ -14,7 +14,7 @@ module FortesForum::Default
           respond_with @forum
         else
           @error = "Sem permissão para acessar este fórum."
-          render :unauthorized
+          render :sem_forum
         end
       end
 
